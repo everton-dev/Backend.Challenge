@@ -33,6 +33,14 @@ namespace Backend.Challenge.Domain.Interfaces.Services
         /// <returns>A RetrieveMessageResponse.</returns>
         public RetrieveMessageResponse RetrieveMessages(string userId, int page, int pageSize);
         /// <summary>
+        /// Retrieves the new messages.
+        /// </summary>
+        /// <param name="userId">The user id.</param>
+        /// <param name="page">The page.</param>
+        /// <param name="pageSize">The page size.</param>
+        /// <returns>A RetrieveMessageResponse.</returns>
+        public RetrieveMessageResponse RetrieveNewMessages(string userId, int page, int pageSize);
+        /// <summary>
         /// Add user.
         /// </summary>
         /// <param name="request">The request.</param>

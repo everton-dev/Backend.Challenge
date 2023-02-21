@@ -85,9 +85,10 @@ namespace Backend.Challenge.Service
         /// <returns>A RetrieveMessageResponse.</returns>
         public RetrieveMessageResponse RetrieveMessages(string userId, int page, int pageSize)
         {
+            var messages = _messageRepository.GetAll(userId, page, pageSize);
             return new RetrieveMessageResponse()
             {
-                Messages = _messageRepository.GetAll(userId, page, pageSize)
+                Messages = messages
             };
         }
 
@@ -141,6 +142,22 @@ namespace Backend.Challenge.Service
                 message.NewMessage = false;
 
             _messageRepository.Update(messages);
+        }
+
+        /// <summary>
+        /// Retrieves the new messages.
+        /// </summary>
+        /// <param name="userId">The user id.</param>
+        /// <param name="page">The page.</param>
+        /// <param name="pageSize">The page size.</param>
+        /// <returns>A RetrieveMessageResponse.</returns>
+        public RetrieveMessageResponse RetrieveNewMessages(string userId, int page, int pageSize)
+        {
+            var messages = _messageRepository.GetAllNewMessages(userId, page, pageSize);
+            return new RetrieveMessageResponse()
+            {
+                Messages = messages
+            };
         }
     }
 }

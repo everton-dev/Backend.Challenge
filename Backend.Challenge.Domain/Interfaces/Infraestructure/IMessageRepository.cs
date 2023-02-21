@@ -33,7 +33,7 @@ namespace Backend.Challenge.Domain.Interfaces
         /// Get the by id.
         /// </summary>
         /// <param name="id">The id.</param>
-        /// <returns>A MessageDto.</returns>
+        /// <returns><![CDATA[ICollection<MessageDto>]]></returns>
         public ICollection<MessageDto> GetById(string[] id);
         /// <summary>
         /// Gets the all.
@@ -43,5 +43,13 @@ namespace Backend.Challenge.Domain.Interfaces
         /// <param name="pageSize">The page size.</param>
         /// <returns><![CDATA[ICollection<MessageDto>]]></returns>
         public ICollection<MessageDto> GetAll(string id, int page, int pageSize);
+        /// <summary>
+        /// Gets the all new messages.
+        /// </summary>
+        /// <param name="id">The id.</param>
+        /// <param name="page">The page.</param>
+        /// <param name="pageSize">The page size.</param>
+        /// <returns><![CDATA[ICollection<MessageDto>]]></returns>
+        public ICollection<MessageDto> GetAllNewMessages(string id, int page, int pageSize);
     }
 }

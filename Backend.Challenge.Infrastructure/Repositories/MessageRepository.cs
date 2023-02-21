@@ -47,6 +47,21 @@ namespace Backend.Challenge.Infrastructure.Repositories
             return messages;
         }
 
+        public ICollection<MessageDto> GetAllNewMessages(string id, int page, int pageSize)
+        {
+            var messages = default(ICollection<MessageDto>);
+            using (IDocumentSession session = _documentStore.OpenSession())
+            {
+                messages = session.Query<MessageDto>()
+                    .Where(x => x.UserId.Equals($"UserDtos/{id}") && x.NewMessage)
+                    .OrderByDescending(x => x.PublicationDate)
+                    .Skip(pageSize * page)
+                    .Take(pageSize)
+                    .ToList();
+            }
+            return messages;
+        }
+
         /// <summary>
         /// Get the by id.
         /// </summary>

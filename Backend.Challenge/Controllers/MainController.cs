@@ -19,9 +19,12 @@ namespace Backend.Challenge.Controllers
             _service.RetrieveUsers();
 
         // TODO: An action to return a paged list of comments
-        // This action responds to the url /main/RetrieveUsers?id=4&page=10&pageSize=5
-        public RetrieveMessageResponse RetrieveUsers(string id, int page, int pageSize) =>
+        // This action responds to the url /main/RetrieveMessages?id=4&page=10&pageSize=5
+        public RetrieveMessageResponse RetrieveMessages(string id, int page, int pageSize) =>
             _service.RetrieveMessages(id, page, pageSize);
+
+        public RetrieveMessageResponse RetrieveNewMessages(string id, int page, int pageSize) =>
+            _service.RetrieveNewMessages(id, page, pageSize);
 
         // TODO: An action to add a comment
         [HttpPost]
